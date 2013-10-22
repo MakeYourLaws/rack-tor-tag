@@ -1,6 +1,6 @@
 # rack-tor-block
 
-A rack middleware to block accesses to your rails application from TOR nodes.
+A rack middleware to block accesses to your rails application from TOR nodes. Inspired by [https://github.com/udzura/rack-block]
 
 ## Install
 
@@ -9,10 +9,6 @@ A rack middleware to block accesses to your rails application from TOR nodes.
 Depends on `rack` >= 1.3.
 
 ## Usage
-
-
-## Related Sites
-
 
 ## Todo
 
