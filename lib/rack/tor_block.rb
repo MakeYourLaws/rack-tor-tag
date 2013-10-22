@@ -11,7 +11,8 @@ module Rack
     end
 
     def call(env)
-      return [302, {'Content-Type' => 'text', 'Location' => DEFAULT_REDIRECT}, [] ] if Rack::IP.new(env['REMOTE_ADDR']).is_tor?
+      req = Rack::Request.new(env)
+      return [302, {'Content-Type' => 'text', 'Location' => DEFAULT_REDIRECT}, [] ] if Rack::IP.new(env['action_dispatch.remote_ip'] || req.ip).is_tor?
         
       #Normal processing
       @app.call(env)
