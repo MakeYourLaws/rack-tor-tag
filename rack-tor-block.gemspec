@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.authors = ['Luca Bonmassar']
   s.email = ['luca@gild.com']
   s.homepage = 'http://www.gild.com'
-  s.summary = 'Prevent tor users to access a Racl / Rails application.'
+  s.summary = 'Prevent tor users to access a Rack / Rails application.'
   s.description = 'Identify and prevent tor users to access a Rack / Rails application.'
   s.files = `git ls-files | grep lib`.split("\n")
 
