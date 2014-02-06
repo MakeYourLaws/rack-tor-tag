@@ -13,6 +13,12 @@ Gemfile:
 config/appplication.rb:
 
     config.middleware.insert_after ActionDispatch::RemoteIp, Rack::TorTag
+    # or set config params
+    config.middleware.insert_after ActionDispatch::RemoteIp, Rack::TorTag, :host_ips => %w(1.2.3.4 1.2.3.5), :dnsel => 'my-dnsel-instance.myhost.org', :hostport => '123'
+
+By default, `:host_ips` will be gotten by DNS lookup on `HTTP_HOST`, so if you know your IPs it's more efficient to specify. `:host_port` should probably be left blank, in which case it'll be gotten from `SERVER_PORT`.
+
+`:dnsel` is if you're running your own instance of the [Tor DNS Exit List software](https://www.torproject.org/projects/tordnsel.html.en).
 
 ## Use
 

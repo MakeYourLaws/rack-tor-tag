@@ -38,6 +38,8 @@ module Rack
       @app.call(env)
     end
     
+    protected
+    
     # see https://www.torproject.org/projects/tordnsel.html.en
     def is_tor? ip, env
       # We're a hidden service! Of course it's Tor.
