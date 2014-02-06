@@ -1,21 +1,30 @@
-# rack-tor-block
+# rack-tor-tag
 
-A rack middleware to block accesses to your rails application from TOR nodes. Inspired by [https://github.com/udzura/rack-block]
+A rack middleware to tag accesses to your rails application from TOR nodes. 
+
+Based on [https://github.com/Gild/rack-tor-block]
 
 ## Install
 
-  $ gem install rack-tor-block
+Gemfile:
 
-Depends on `rack` >= 1.3.
+    gem 'rack-tor-tag'
 
-## Usage
+config/appplication.rb:
 
-You need to add this Rack application in your Rack stack.
-If you're using Rails, simply add the following line to your config/application.rb (in the class block):
+    config.middleware.insert_after ActionDispatch::RemoteIp, Rack::TorTag
 
-   config.middleware.insert_after ActionDispatch::RemoteIp, Rack::TorBlock
+## Use
+
+Tor users will all have `env['action_dispatch.remote_ip'] = '127.0.0.2'`. The actual source IP is at `env['tor_ip']` — though practically all Tor IPs should probably be treated the same, since there's no easy way to know whether two different Tor exit node IPs represent the same originating user or not.
+
+`env['tor']` will be true for Tor users, false for non-Tor users, and nil if the lookup failed.
 
 ## Todo
+
+[ ] Get the bulk list rather than doing DNS lookups
+[ ] Cache results
+[ ] Local-cache dns lookups
 
 ## Contributing
  
