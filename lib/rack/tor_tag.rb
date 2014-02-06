@@ -57,7 +57,7 @@ module Rack
       end
       false
     
-    rescue Errno::EHOSTUNREACH, Errno::ENETUNREACH, Resolv::ResolvError => e
+    rescue Errno::EHOSTUNREACH, Errno::ENETUNREACH => e
       return nil      
     end
     
