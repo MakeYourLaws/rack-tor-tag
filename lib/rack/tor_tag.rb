@@ -6,11 +6,11 @@ module Rack
     DEFAULT_PARAMS = {
       # You could run your own if you want.
       # https://www.torproject.org/projects/tordnsel.html.en
-      :dnsel => 'ip-port.exitlist.torproject.org', 
+      :dnsel => 'ip-port.exitlist.torproject.org',
       :host_ips => nil, # will get from env
       :host_port => nil
     }
-    
+
     def initialize(app, params = {})
       @app = app
       @params = DEFAULT_PARAMS.merge(params)
@@ -18,11 +18,11 @@ module Rack
 
     def call(env)
       ip = env['action_dispatch.remote_ip']
-      # Getting the right IP is hard. Let's punt. 
+      # Getting the right IP is hard. Let's punt.
       # http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html
       # http://blog.gingerlime.com/2012/rails-ip-spoofing-vulnerabilities-and-protection/
       raise 'Must run after ActionDispatch::RemoteIp' if ip.blank?
-      
+
       case is_tor?(ip, env)
       when true
         env['tor'] = true
@@ -33,23 +33,24 @@ module Rack
       else
         env['tor'] = nil # i.e. unknown
       end
-      
+
       # Continue normal processing
       @app.call(env)
     end
-    
+
     protected
-    
+
     # see https://www.torproject.org/projects/tordnsel.html.en
     def is_tor? ip, env
       # We're a hidden service! Of course it's Tor.
-      return true if env['HTTP_HOST'] =~ /\.onion\z/ 
-      
+      return true if env['HTTP_HOST'] =~ /\.onion\z/
+      return false if (ip == 'localhost') or (env['HTTP_HOST'] == 'localhost')
+
       host_ips = @params[:host_ips] || Resolv.getaddresses(
         env['HTTP_HOST'] ? env['HTTP_HOST'].sub(/:.*/,'') : env['SERVER_NAME']).
       select{|i| i[Resolv::IPv4::Regex]} # DNEL only works with IPv4
-      
-      host_ips.each do |host_ip| 
+
+      host_ips.each do |host_ip|
         tor_hostname = [reverse_ip_octets(ip), @params[:host_port] || env['SERVER_PORT'], reverse_ip_octets(host_ip), @params[:dnsel]].join('.')
         begin
           return true if (Resolv.getaddress(tor_hostname) == '127.0.0.2')
@@ -58,11 +59,11 @@ module Rack
         end
       end
       false
-    
+
     rescue Errno::EHOSTUNREACH, Errno::ENETUNREACH => e
-      return nil      
+      return nil
     end
-    
+
     def reverse_ip_octets(ip)
       ip.to_s.split('.').reverse.join('.')
     end
