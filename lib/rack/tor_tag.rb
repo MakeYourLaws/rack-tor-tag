@@ -17,7 +17,6 @@ module Rack
     def initialize(app, params = {})
       @app = app
       @params = DEFAULT_PARAMS.merge(params)
-      puts "rack-tor-tag initialized: #{app} - #{params}"
       # raise ArgumentError, "Must pass :host_ips" unless RESOLV_WORKS
     end
 
