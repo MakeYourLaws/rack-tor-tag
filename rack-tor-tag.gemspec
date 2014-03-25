@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.authors = ['Sai', 'Luca Bonmassar']
   s.email = ['sai@makeyourlaws.org']
   s.homepage = 'https://makeyourlaws.org'
-  s.summary = 'Mark Tor users using rack, for filtering / throttling / etc'
+  s.summary = 'Mark Tor users using rack'
   s.description = 'Mark Tor users using rack, for filtering / throttling / etc'
   s.files = `git ls-files | grep lib`.split("\n")
 
