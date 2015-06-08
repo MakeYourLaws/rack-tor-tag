@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
     "spec/rack-tor-tag_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/saizai/rack-tor-tag"
+  s.homepage = "https://github.com/saizai/rack-tor-tag"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.6"
   s.summary = "Mark Tor users using rack, for filtering / throttling / etc"

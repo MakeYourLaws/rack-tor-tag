@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
     builder (3.2.2)
@@ -29,7 +29,7 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.3)
       oauth2
-    hashie (3.4.1)
+    hashie (3.4.2)
     highline (1.7.2)
     jeweler (2.0.1)
       builder
@@ -40,7 +40,7 @@ GEM
       nokogiri (>= 1.5.10)
       rake
       rdoc
-    json (1.8.2)
+    json (1.8.3)
     jwt (1.5.0)
     mini_portile (0.6.2)
     multi_json (1.11.0)
@@ -83,9 +83,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
-  cucumber
-  jeweler
-  rdoc
-  rspec
-  simplecov
+  bundler!
+  cucumber!
+  jeweler!
+  rdoc!
+  rspec!
+  simplecov!
