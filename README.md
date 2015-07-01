@@ -1,3 +1,11 @@
+[![Build Status](https://travis-ci.org/MakeYourLaws/rack-tor-tag.svg)](https://travis-ci.org/MakeYourLaws/rack-tor-tag)
+[![Gem Version](https://badge.fury.io/rb/rack-tor-tag.svg)](http://badge.fury.io/rb/rack-tor-tag)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MakeYourLaws/rack-tor-tag/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MakeYourLaws/rack-tor-tag/?branch=master)
+[![security](https://hakiri.io/github/MakeYourLaws/rack-tor-tag/master.svg)](https://hakiri.io/github/MakeYourLaws/rack-tor-tag/master)
+[![Code Climate](https://codeclimate.com/github/MakeYourLaws/rack-tor-tag/badges/gpa.svg)](https://codeclimate.com/github/MakeYourLaws/rack-tor-tag)
+[![Test Coverage](https://codeclimate.com/github/MakeYourLaws/rack-tor-tag/badges/coverage.svg)](https://codeclimate.com/github/MakeYourLaws/rack-tor-tag/coverage)
+[![Dependency Status](https://gemnasium.com/MakeYourLaws/rack-tor-tag.svg)](https://gemnasium.com/MakeYourLaws/rack-tor-tag)
+
 # rack-tor-tag
 
 A rack middleware to tag accesses to your rails application from TOR nodes. 
