@@ -59,7 +59,7 @@ GEM
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
     pkg-config (1.1.7)
-    rack (1.6.4)
+    rack (2.2.3)
     rake (11.2.0)
     rdoc (4.2.2)
       json (~> 1.4)
